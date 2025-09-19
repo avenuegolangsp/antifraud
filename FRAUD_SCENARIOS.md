@@ -64,40 +64,8 @@ graph TD
     style A fill:#e1f5fe
     style I fill:#ffebee
     style J fill:#e8f5e8
-```mermaid
-graph TD
-    A[Transação Recebida] --> B[Definir Janela de Tempo: 5 minutos]
-    B --> C[Contar Transações do Usuário na Janela]
-    C --> D{Contagem >= 10?}
-    D -->|Não| E[Score: 0 - Velocidade Normal]
-    D -->|Sim| F{Contagem >= 20?}
-    F -->|Não| G[Score: 25 - Velocidade Alta]
-    F -->|Sim| H[Score: 50 - Velocidade Crítica]
-    E --> I[Retornar Resultado]
-    G --> I
-    H --> I
-    
-    style A fill:#e1f5fe
-    style H fill:#ffebee
-    style I fill:#e8f5e8
-```mermaid
-graph TD
-    A[Transação Recebida] --> B[Definir Janela de Tempo: 5 minutos]
-    B --> C[Contar Transações do Usuário na Janela]
-    C --> D{Contagem >= 10?}
-    D -->|Não| E[Score: 0 - Velocidade Normal]
-    D -->|Sim| F{Contagem >= 20?}
-    F -->|Não| G[Score: 25 - Velocidade Alta]
-    F -->|Sim| H[Score: 50 - Velocidade Crítica]
-    E --> I[Retornar Resultado]
-    G --> I
-    H --> I
-    
-    style A fill:#e1f5fe
-    style H fill:#ffebee
-    style I fill:#e8f5e8
 ```
-```
+
 
 ### ⚡ Cenário 4: Velocidade de Transações
 ```mermaid
