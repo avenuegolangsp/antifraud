@@ -5,7 +5,10 @@ import (
 	"net/http"
 
 	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers"
+	"github.com/avenuegolangsp/antifraud/internal/services/web/repository"
 	restful "github.com/emicklei/go-restful/v3"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 func main() {
@@ -21,7 +24,7 @@ func main() {
 	}
 
 	// Migrar tabelas
-	db.AutoMigrate(&models.Transaction{}, &models.TransactionAnalysis{}, &models.TransactionAlert{})
+	db.AutoMigrate(&repository.Transaction{}, &repository.TransactionAnalysis{}, &repository.TransactionAlert{})
 
 	http.ListenAndServe(":8080", nil)
 }
