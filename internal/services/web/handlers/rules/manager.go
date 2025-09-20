@@ -1,5 +1,7 @@
 package rules
 
+import "github.com/avenuegolangsp/antifraud/internal/services/web/repository"
+
 // TYPES!!@!!
 type AnalyzeResponse struct {
 	TransactionID string   `json:"transaction_id"`
@@ -26,8 +28,8 @@ type AnalyzeLocation struct {
 }
 
 type RuleInput struct {
-	User        any
-	Transaction any
+	User        repository.User
+	Transaction repository.Transaction
 	Location    AnalyzeLocation
 }
 
