@@ -5,6 +5,8 @@ go 1.24.6
 require (
 	github.com/emicklei/go-restful/v3 v3.13.0
 	github.com/go-playground/validator/v10 v10.27.0
+	github.com/lib/pq v1.10.9
+	gorm.io/driver/postgres v1.6.0
 	gorm.io/gorm v1.31.0
 )
 
@@ -24,5 +26,4 @@ require (
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
-	gorm.io/driver/postgres v1.6.0 // indirect
 )

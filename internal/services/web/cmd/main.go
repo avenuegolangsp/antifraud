@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers"
-	"github.com/avenuegolangsp/antifraud/internal/services/web/repository"
 	restful "github.com/emicklei/go-restful/v3"
+	_ "github.com/lib/pq"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -17,14 +17,10 @@ func main() {
 	restful.DefaultContainer.Router(restful.CurlyRouter{})
 	restful.Add(ws.GetWS())
 
-	dsn := "host=localhost user=postgres password=123 dbname=testdb port=5432 sslmode=disable"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	dsn := "host=localhost user=avenue password=password dbname=antifraud port=5432 sslmode=disable"
+	_, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Migrar tabelas
-	db.AutoMigrate(&repository.Transaction{}, &repository.TransactionAnalysis{}, &repository.TransactionAlert{})
-
 	http.ListenAndServe(":8080", nil)
 }
