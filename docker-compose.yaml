@@ -32,6 +32,24 @@ services:
     networks:
       - avenue-network
 
+  api:
+    build:
+      context: ./internal/services/web
+    image: antifraud-webapi:latest
+    container_name: antifraud-api
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: avenue
+      DB_PASSWORD: password
+      DB_NAME: antifraud
+    ports:
+      - "8080:8080"
+    networks:
+      - avenue-network
+
 volumes:
   postgres-data:
 
