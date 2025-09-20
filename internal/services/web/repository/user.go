@@ -1,5 +1,12 @@
 package repository
 
+import (
+	"encoding/json"
+	"log"
+	"os"
+	"path/filepath"
+)
+
 type Location struct {
 	City      string  `json:"city"`
 	Country   string  `json:"country"`
@@ -41,4 +48,38 @@ type User struct {
 	FraudHistory     FraudHistory     `json:"fraud_history"`
 	BehaviorPatterns BehaviorPatterns `json:"behavior_patterns"`
 	TrustedDevices   []TrustedDevice  `json:"trusted_devices"`
+}
+
+func GetUserList() []User {
+
+	var Users []User
+
+	files := []string{
+		"antifraud/data/users01.json",
+		"antifraud/data/user02.json",
+		"antifraud/data/users03.json",
+	}
+
+	for _, file := range files {
+		path := filepath.Join(file)
+		data, err := os.ReadFile(path)
+		if err != nil {
+			log.Printf("erro ao ler arquivo %s: %v", file, err)
+			continue
+		}
+
+		// estrutura auxiliar para casar com o JSON
+		var wrapper struct {
+			Users []User `json:"users"`
+		}
+
+		if err := json.Unmarshal(data, &wrapper); err != nil {
+			log.Printf("erro ao parsear %s: %v", file, err)
+			continue
+		}
+
+		Users = append(Users, wrapper.Users...)
+	}
+
+	return Users
 }
