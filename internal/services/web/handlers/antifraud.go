@@ -1,11 +1,24 @@
 package handlers
 
-import "github.com/emicklei/go-restful/v3"
+import (
+	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers/rules"
+	"github.com/emicklei/go-restful/v3"
+)
 
 type AntifraudHandler struct {
+	RuleManager rules.IRuleManager
+}
+
+func NewAntifraudHandler() *AntifraudHandler {
+	return &AntifraudHandler{
+		RuleManager: rules.NewRuleManager(),
+	}
 }
 
 func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restful.Response) {
+
+	h.RuleManager.AnalyzeTransaction(rules.AnalyzeRequest{})
+
 	_, _ = resp.Write([]byte("OK - AnalyzeTransaction"))
 }
 
