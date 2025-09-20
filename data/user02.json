@@ -1,0 +1,477 @@
+{
+  "users": [
+    {
+      "id": "user-conservative",
+      "name": "Ana Silva",
+      "profile": "conservative",
+      "email": "ana.silva@email.com",
+      "phone": "+55-11-98765-4321",
+      "created_at": "2023-01-15T10:30:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 45,
+        "suspicious_transactions": 2,
+        "blocked_transactions": 0,
+        "avg_transaction_amount": 150.0,
+        "max_transaction_amount": 500.0,
+        "last_transaction_date": "2024-09-15T14:20:00Z",
+        "last_location": {
+          "city": "São Paulo",
+          "country": "BR",
+          "latitude": -23.5505,
+          "longitude": -46.6333,
+          "timestamp": "2024-09-15T14:20:00Z"
+        }
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [9, 10, 11, 14, 15, 16, 18, 19],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.9},
+          {"city": "Campinas", "country": "BR", "frequency": 0.1}
+        ],
+        "typical_amounts": [50, 100, 150, 200, 300],
+        "transaction_velocity": {
+          "max_per_minute": 1,
+          "max_per_hour": 5,
+          "typical_interval_minutes": 30
+        }
+      },
+      "trusted_devices": [
+        {
+          "device_id": "ana-iphone-12",
+          "platform": "iOS",
+          "trust_score": 0.95,
+          "first_seen": "2023-01-15T10:30:00Z",
+          "last_seen": "2024-09-15T14:20:00Z",
+          "transaction_count": 43
+        }
+      ],
+      "scenario_thresholds": {
+        "impossible_travel": {
+          "max_speed_kmh": 800,
+          "suspicious_distance_km": 100
+        },
+        "anomalous_amount": {
+          "multiplier_alert": 3.0,
+          "multiplier_block": 5.0
+        },
+        "unknown_device": {
+          "trust_threshold": 0.3,
+          "new_device_penalty": 70
+        },
+        "transaction_velocity": {
+          "max_per_minute": 2,
+          "suspicious_per_minute": 1
+        }
+      }
+    },
+    {
+      "id": "user-moderate",
+      "name": "Carlos Santos",
+      "profile": "moderate",
+      "email": "carlos.santos@email.com",
+      "phone": "+55-11-91234-5678",
+      "created_at": "2022-06-10T15:45:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 125,
+        "suspicious_transactions": 8,
+        "blocked_transactions": 1,
+        "avg_transaction_amount": 450.0,
+        "max_transaction_amount": 2500.0,
+        "last_transaction_date": "2024-09-18T16:30:00Z",
+        "last_location": {
+          "city": "São Paulo",
+          "country": "BR",
+          "latitude": -23.5505,
+          "longitude": -46.6333,
+          "timestamp": "2024-09-18T16:30:00Z"
+        }
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [8, 9, 12, 13, 17, 18, 20, 21],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.7},
+          {"city": "Rio de Janeiro", "country": "BR", "frequency": 0.2},
+          {"city": "Brasília", "country": "BR", "frequency": 0.1}
+        ],
+        "typical_amounts": [200, 300, 500, 800, 1000, 1500],
+        "transaction_velocity": {
+          "max_per_minute": 3,
+          "max_per_hour": 15,
+          "typical_interval_minutes": 15
+        }
+      },
+      "trusted_devices": [
+        {
+          "device_id": "carlos-android-s21",
+          "platform": "Android",
+          "trust_score": 0.88,
+          "first_seen": "2022-06-10T15:45:00Z",
+          "last_seen": "2024-09-18T16:30:00Z",
+          "transaction_count": 89
+        },
+        {
+          "device_id": "carlos-laptop-dell",
+          "platform": "Web",
+          "trust_score": 0.92,
+          "first_seen": "2022-07-01T09:15:00Z",
+          "last_seen": "2024-09-17T10:45:00Z",
+          "transaction_count": 36
+        }
+      ],
+      "scenario_thresholds": {
+        "impossible_travel": {
+          "max_speed_kmh": 900,
+          "suspicious_distance_km": 200
+        },
+        "anomalous_amount": {
+          "multiplier_alert": 4.0,
+          "multiplier_block": 7.0
+        },
+        "unknown_device": {
+          "trust_threshold": 0.4,
+          "new_device_penalty": 60
+        },
+        "transaction_velocity": {
+          "max_per_minute": 4,
+          "suspicious_per_minute": 3
+        }
+      }
+    },
+    {
+      "id": "user-aggressive",
+      "name": "Beatriz Costa",
+      "profile": "aggressive",
+      "email": "beatriz.costa@email.com",
+      "phone": "+55-11-99876-5432",
+      "created_at": "2021-03-22T08:20:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 589,
+        "suspicious_transactions": 45,
+        "blocked_transactions": 3,
+        "avg_transaction_amount": 1250.0,
+        "max_transaction_amount": 25000.0,
+        "last_transaction_date": "2024-09-19T11:15:00Z",
+        "last_location": {
+          "city": "New York",
+          "country": "US",
+          "latitude": 40.7128,
+          "longitude": -74.0060,
+          "timestamp": "2024-09-19T11:15:00Z"
+        }
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [6, 7, 8, 11, 12, 13, 15, 16, 19, 20, 22, 23],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.5},
+          {"city": "New York", "country": "US", "frequency": 0.2},
+          {"city": "London", "country": "UK", "frequency": 0.15},
+          {"city": "Miami", "country": "US", "frequency": 0.15}
+        ],
+        "typical_amounts": [500, 1000, 2000, 5000, 10000, 15000],
+        "transaction_velocity": {
+          "max_per_minute": 8,
+          "max_per_hour": 50,
+          "typical_interval_minutes": 5
+        }
+      },
+      "trusted_devices": [
+        {
+          "device_id": "beatriz-iphone-pro",
+          "platform": "iOS",
+          "trust_score": 0.96,
+          "first_seen": "2021-03-22T08:20:00Z",
+          "last_seen": "2024-09-19T11:15:00Z",
+          "transaction_count": 325
+        },
+        {
+          "device_id": "beatriz-macbook-pro",
+          "platform": "Web",
+          "trust_score": 0.94,
+          "first_seen": "2021-04-01T14:30:00Z",
+          "last_seen": "2024-09-18T22:45:00Z",
+          "transaction_count": 198
+        },
+        {
+          "device_id": "beatriz-ipad",
+          "platform": "iOS",
+          "trust_score": 0.85,
+          "first_seen": "2021-05-15T16:00:00Z",
+          "last_seen": "2024-09-16T19:30:00Z",
+          "transaction_count": 66
+        }
+      ],
+      "scenario_thresholds": {
+        "impossible_travel": {
+          "max_speed_kmh": 1000,
+          "suspicious_distance_km": 500
+        },
+        "anomalous_amount": {
+          "multiplier_alert": 8.0,
+          "multiplier_block": 15.0
+        },
+        "unknown_device": {
+          "trust_threshold": 0.5,
+          "new_device_penalty": 50
+        },
+        "transaction_velocity": {
+          "max_per_minute": 10,
+          "suspicious_per_minute": 8
+        }
+      }
+    },
+    {
+      "id": "user-institutional", 
+      "name": "Diego Oliveira",
+      "profile": "institutional",
+      "email": "diego.oliveira@fundo.com.br",
+      "phone": "+55-11-94567-8901",
+      "created_at": "2020-11-05T13:10:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 1247,
+        "suspicious_transactions": 89,
+        "blocked_transactions": 7,
+        "avg_transaction_amount": 5000.0,
+        "max_transaction_amount": 100000.0,
+        "last_transaction_date": "2024-09-19T09:30:00Z",
+        "last_location": {
+          "city": "São Paulo",
+          "country": "BR",
+          "latitude": -23.5505,
+          "longitude": -46.6333,
+          "timestamp": "2024-09-19T09:30:00Z"
+        }
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [9, 10, 11, 14, 15, 16, 17],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.8},
+          {"city": "New York", "country": "US", "frequency": 0.1},
+          {"city": "London", "country": "UK", "frequency": 0.1}
+        ],
+        "typical_amounts": [1000, 5000, 10000, 25000, 50000, 100000],
+        "transaction_velocity": {
+          "max_per_minute": 15,
+          "max_per_hour": 100,
+          "typical_interval_minutes": 2
+        }
+      },
+      "trusted_devices": [
+        {
+          "device_id": "diego-work-laptop",
+          "platform": "Web",
+          "trust_score": 0.98,
+          "first_seen": "2020-11-05T13:10:00Z",
+          "last_seen": "2024-09-19T09:30:00Z",
+          "transaction_count": 1089
+        },
+        {
+          "device_id": "diego-work-mobile",
+          "platform": "Android",
+          "trust_score": 0.93,
+          "first_seen": "2020-12-01T08:45:00Z",
+          "last_seen": "2024-09-18T17:20:00Z",
+          "transaction_count": 158
+        }
+      ],
+      "scenario_thresholds": {
+        "impossible_travel": {
+          "max_speed_kmh": 1000,
+          "suspicious_distance_km": 1000
+        },
+        "anomalous_amount": {
+          "multiplier_alert": 10.0,
+          "multiplier_block": 20.0
+        },
+        "unknown_device": {
+          "trust_threshold": 0.6,
+          "new_device_penalty": 40
+        },
+        "transaction_velocity": {
+          "max_per_minute": 20,
+          "suspicious_per_minute": 15
+        }
+      }
+    },
+    {
+      "id": "user-test-fraud",
+      "name": "Fraudster Test",
+      "profile": "suspicious",
+      "email": "test.fraud@suspicious.com",
+      "phone": "+55-11-90000-0000",
+      "created_at": "2024-09-01T12:00:00Z",
+      "status": "monitoring",
+      "fraud_history": {
+        "total_transactions": 15,
+        "suspicious_transactions": 12,
+        "blocked_transactions": 8,
+        "avg_transaction_amount": 1000.0,
+        "max_transaction_amount": 50000.0,
+        "last_transaction_date": "2024-09-18T23:30:00Z",
+        "last_location": {
+          "city": "Unknown",
+          "country": "Unknown",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "timestamp": "2024-09-18T23:30:00Z"
+        }
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [1, 2, 3, 4, 5],
+        "typical_locations": [
+          {"city": "Unknown", "country": "Unknown", "frequency": 1.0}
+        ],
+        "typical_amounts": [999, 1000, 5000, 10000, 50000],
+        "transaction_velocity": {
+          "max_per_minute": 20,
+          "max_per_hour": 100,
+          "typical_interval_minutes": 1
+        }
+      },
+      "trusted_devices": [],
+      "scenario_thresholds": {
+        "impossible_travel": {
+          "max_speed_kmh": 500,
+          "suspicious_distance_km": 50
+        },
+        "anomalous_amount": {
+          "multiplier_alert": 2.0,
+          "multiplier_block": 3.0
+        },
+        "unknown_device": {
+          "trust_threshold": 0.1,
+          "new_device_penalty": 90
+        },
+        "transaction_velocity": {
+          "max_per_minute": 5,
+          "suspicious_per_minute": 3
+        }
+      }
+    }
+  ],
+  "fraud_scenarios_v2": {
+    "scenario_1_impossible_travel": {
+      "enabled": true,
+      "max_score": 90,
+      "priority": "CRITICAL",
+      "description": "Detecta transações em locais muito distantes em pouco tempo",
+      "parameters": {
+        "max_realistic_speed_kmh": 900,
+        "suspicious_speed_kmh": 500,
+        "min_time_threshold_minutes": 30
+      },
+      "test_cases": [
+        {
+          "description": "São Paulo -> Nova York em 30min",
+          "from": {"city": "São Paulo", "lat": -23.5505, "lng": -46.6333},
+          "to": {"city": "New York", "lat": 40.7128, "lng": -74.0060},
+          "time_minutes": 30,
+          "distance_km": 7677,
+          "expected_score": 90
+        }
+      ]
+    },
+    "scenario_2_anomalous_amount": {
+      "enabled": true,
+      "max_score": 80,
+      "priority": "HIGH",
+      "description": "Detecta transações muito acima do padrão do usuário",
+      "parameters": {
+        "alert_multiplier": 3.0,
+        "block_multiplier": 5.0,
+        "min_transactions_for_baseline": 5
+      },
+      "test_cases": [
+        {
+          "description": "Usuário conservador com transação 10x maior",
+          "user_avg": 150.0,
+          "transaction_amount": 1500.0,
+          "multiplier": 10.0,
+          "expected_score": 80
+        }
+      ]
+    },
+    "scenario_3_unknown_device": {
+      "enabled": true,
+      "max_score": 70,
+      "priority": "MEDIUM",
+      "description": "Detecta transações de dispositivos não reconhecidos",
+      "parameters": {
+        "trust_threshold": 0.3,
+        "new_device_penalty": 70,
+        "learning_period_days": 7
+      },
+      "test_cases": [
+        {
+          "description": "Dispositivo completamente novo",
+          "device_trust_score": 0.0,
+          "expected_score": 70
+        }
+      ]
+    },
+    "scenario_4_transaction_velocity": {
+      "enabled": true,
+      "max_score": 85,
+      "priority": "CRITICAL",
+      "description": "Detecta muitas transações em pouco tempo",
+      "parameters": {
+        "max_per_minute": 5,
+        "suspicious_per_minute": 3,
+        "time_window_minutes": 1
+      },
+      "test_cases": [
+        {
+          "description": "10 transações em 1 minuto",
+          "transaction_count": 10,
+          "time_window_minutes": 1,
+          "expected_score": 85
+        }
+      ]
+    }
+  },
+  "user_profiles_v2": {
+    "conservative": {
+      "description": "Usuário conservador, transações pequenas e previsíveis",
+      "risk_tolerance": "low",
+      "typical_amount_range": [10, 500],
+      "monitoring_level": "standard",
+      "velocity_limits": {"max_per_minute": 2, "max_per_hour": 10},
+      "travel_patterns": "local_only"
+    },
+    "moderate": {
+      "description": "Usuário moderado, transações médias com alguma variação",
+      "risk_tolerance": "medium",
+      "typical_amount_range": [100, 2500],
+      "monitoring_level": "standard",
+      "velocity_limits": {"max_per_minute": 4, "max_per_hour": 20},
+      "travel_patterns": "domestic"
+    },
+    "aggressive": {
+      "description": "Usuário agressivo, transações altas e variadas",
+      "risk_tolerance": "medium-high",
+      "typical_amount_range": [500, 25000],
+      "monitoring_level": "enhanced",
+      "velocity_limits": {"max_per_minute": 10, "max_per_hour": 60},
+      "travel_patterns": "international"
+    },
+    "institutional": {
+      "description": "Cliente institucional, transações muito altas",
+      "risk_tolerance": "high",
+      "typical_amount_range": [1000, 100000],
+      "monitoring_level": "enhanced",
+      "velocity_limits": {"max_per_minute": 20, "max_per_hour": 120},
+      "travel_patterns": "global"
+    },
+    "suspicious": {
+      "description": "Perfil de teste para cenários de fraude",
+      "risk_tolerance": "none",
+      "typical_amount_range": [1, 100000],
+      "monitoring_level": "maximum",
+      "velocity_limits": {"max_per_minute": 1, "max_per_hour": 5},
+      "travel_patterns": "restricted"
+    }
+  }
+}

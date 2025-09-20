@@ -1,0 +1,299 @@
+{
+  "users": [
+    {
+      "id": "user-conservative",
+      "name": "Ana Silva",
+      "profile": "conservative",
+      "email": "ana.silva@email.com",
+      "phone": "+55-11-98765-4321",
+      "created_at": "2023-01-15T10:30:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 45,
+        "suspicious_transactions": 2,
+        "blocked_transactions": 0,
+        "avg_transaction_amount": 150.0,
+        "max_transaction_amount": 500.0,
+        "last_transaction_date": "2024-09-15T14:20:00Z"
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [9, 10, 11, 14, 15, 16, 18, 19],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.8},
+          {"city": "Campinas", "country": "BR", "frequency": 0.2}
+        ],
+        "typical_amounts": [50, 100, 150, 200, 300],
+        "preferred_merchants": ["Supermercado", "Farmácia", "Posto de Gasolina"]
+      },
+      "trusted_devices": [
+        {
+          "device_id": "ana-iphone-12",
+          "platform": "iOS",
+          "trust_score": 0.95,
+          "first_seen": "2023-01-15T10:30:00Z",
+          "last_seen": "2024-09-15T14:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "user-moderate",
+      "name": "Carlos Santos",
+      "profile": "moderate",
+      "email": "carlos.santos@email.com",
+      "phone": "+55-11-91234-5678",
+      "created_at": "2022-06-10T15:45:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 125,
+        "suspicious_transactions": 8,
+        "blocked_transactions": 1,
+        "avg_transaction_amount": 450.0,
+        "max_transaction_amount": 2500.0,
+        "last_transaction_date": "2024-09-18T16:30:00Z"
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [8, 9, 12, 13, 17, 18, 20, 21],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.7},
+          {"city": "Rio de Janeiro", "country": "BR", "frequency": 0.2},
+          {"city": "Brasília", "country": "BR", "frequency": 0.1}
+        ],
+        "typical_amounts": [200, 300, 500, 800, 1000, 1500],
+        "preferred_merchants": ["E-commerce", "Restaurante", "Shopping", "Viagem"]
+      },
+      "trusted_devices": [
+        {
+          "device_id": "carlos-android-s21",
+          "platform": "Android",
+          "trust_score": 0.88,
+          "first_seen": "2022-06-10T15:45:00Z",
+          "last_seen": "2024-09-18T16:30:00Z"
+        },
+        {
+          "device_id": "carlos-laptop-dell",
+          "platform": "Web",
+          "trust_score": 0.92,
+          "first_seen": "2022-07-01T09:15:00Z",
+          "last_seen": "2024-09-17T10:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "user-aggressive",
+      "name": "Beatriz Costa",
+      "profile": "aggressive",
+      "email": "beatriz.costa@email.com",
+      "phone": "+55-11-99876-5432",
+      "created_at": "2021-03-22T08:20:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 589,
+        "suspicious_transactions": 45,
+        "blocked_transactions": 3,
+        "avg_transaction_amount": 1250.0,
+        "max_transaction_amount": 25000.0,
+        "last_transaction_date": "2024-09-19T11:15:00Z"
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [6, 7, 8, 11, 12, 13, 15, 16, 19, 20, 22, 23],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.5},
+          {"city": "New York", "country": "US", "frequency": 0.2},
+          {"city": "London", "country": "UK", "frequency": 0.15},
+          {"city": "Miami", "country": "US", "frequency": 0.15}
+        ],
+        "typical_amounts": [500, 1000, 2000, 5000, 10000, 15000],
+        "preferred_merchants": ["Investimentos", "Luxury", "Internacional", "Criptomoedas"]
+      },
+      "trusted_devices": [
+        {
+          "device_id": "beatriz-iphone-pro",
+          "platform": "iOS",
+          "trust_score": 0.96,
+          "first_seen": "2021-03-22T08:20:00Z",
+          "last_seen": "2024-09-19T11:15:00Z"
+        },
+        {
+          "device_id": "beatriz-macbook-pro",
+          "platform": "Web",
+          "trust_score": 0.94,
+          "first_seen": "2021-04-01T14:30:00Z",
+          "last_seen": "2024-09-18T22:45:00Z"
+        },
+        {
+          "device_id": "beatriz-ipad",
+          "platform": "iOS",
+          "trust_score": 0.85,
+          "first_seen": "2021-05-15T16:00:00Z",
+          "last_seen": "2024-09-16T19:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "user-institutional", 
+      "name": "Diego Oliveira",
+      "profile": "institutional",
+      "email": "diego.oliveira@fundo.com.br",
+      "phone": "+55-11-94567-8901",
+      "created_at": "2020-11-05T13:10:00Z",
+      "status": "active",
+      "fraud_history": {
+        "total_transactions": 1247,
+        "suspicious_transactions": 89,
+        "blocked_transactions": 7,
+        "avg_transaction_amount": 5000.0,
+        "max_transaction_amount": 100000.0,
+        "last_transaction_date": "2024-09-19T09:30:00Z"
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [9, 10, 11, 14, 15, 16, 17],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.8},
+          {"city": "New York", "country": "US", "frequency": 0.1},
+          {"city": "London", "country": "UK", "frequency": 0.1}
+        ],
+        "typical_amounts": [1000, 5000, 10000, 25000, 50000, 100000],
+        "preferred_merchants": ["Institucional", "Hedge Fund", "Private Banking", "Investimentos"]
+      },
+      "trusted_devices": [
+        {
+          "device_id": "diego-work-laptop",
+          "platform": "Web",
+          "trust_score": 0.98,
+          "first_seen": "2020-11-05T13:10:00Z",
+          "last_seen": "2024-09-19T09:30:00Z"
+        },
+        {
+          "device_id": "diego-work-mobile",
+          "platform": "Android",
+          "trust_score": 0.93,
+          "first_seen": "2020-12-01T08:45:00Z",
+          "last_seen": "2024-09-18T17:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "user-premium",
+      "name": "Elena Rodriguez",
+      "profile": "premium",
+      "email": "elena.rodriguez@trading.com",
+      "phone": "+55-11-95678-9012",
+      "created_at": "2019-08-12T11:25:00Z",
+      "status": "premium",
+      "fraud_history": {
+        "total_transactions": 3456,
+        "suspicious_transactions": 234,
+        "blocked_transactions": 12,
+        "avg_transaction_amount": 15000.0,
+        "max_transaction_amount": 500000.0,
+        "last_transaction_date": "2024-09-19T14:45:00Z"
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+        "typical_locations": [
+          {"city": "São Paulo", "country": "BR", "frequency": 0.3},
+          {"city": "New York", "country": "US", "frequency": 0.25},
+          {"city": "London", "country": "UK", "frequency": 0.2},
+          {"city": "Tokyo", "country": "JP", "frequency": 0.15},
+          {"city": "Singapore", "country": "SG", "frequency": 0.1}
+        ],
+        "typical_amounts": [5000, 10000, 25000, 50000, 100000, 250000, 500000],
+        "preferred_merchants": ["HFT", "Algorithmic Trading", "Crypto Exchange", "Forex", "Commodities"]
+      },
+      "trusted_devices": [
+        {
+          "device_id": "elena-trading-station-1",
+          "platform": "Web",
+          "trust_score": 0.99,
+          "first_seen": "2019-08-12T11:25:00Z",
+          "last_seen": "2024-09-19T14:45:00Z"
+        },
+        {
+          "device_id": "elena-trading-station-2",
+          "platform": "Web",
+          "trust_score": 0.98,
+          "first_seen": "2019-09-01T06:00:00Z",
+          "last_seen": "2024-09-19T14:30:00Z"
+        },
+        {
+          "device_id": "elena-mobile-trading",
+          "platform": "iOS",
+          "trust_score": 0.95,
+          "first_seen": "2019-08-15T12:00:00Z",
+          "last_seen": "2024-09-19T13:20:00Z"
+        },
+        {
+          "device_id": "elena-backup-laptop",
+          "platform": "Web",
+          "trust_score": 0.90,
+          "first_seen": "2020-01-10T09:15:00Z",
+          "last_seen": "2024-09-10T16:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "user-test-fraud",
+      "name": "Fraudster Test",
+      "profile": "suspicious",
+      "email": "test.fraud@suspicious.com",
+      "phone": "+55-11-90000-0000",
+      "created_at": "2024-09-01T12:00:00Z",
+      "status": "monitoring",
+      "fraud_history": {
+        "total_transactions": 15,
+        "suspicious_transactions": 12,
+        "blocked_transactions": 8,
+        "avg_transaction_amount": 1000.0,
+        "max_transaction_amount": 50000.0,
+        "last_transaction_date": "2024-09-18T23:30:00Z"
+      },
+      "behavior_patterns": {
+        "typical_transaction_hours": [1, 2, 3, 4, 5],
+        "typical_locations": [
+          {"city": "Unknown", "country": "Unknown", "frequency": 1.0}
+        ],
+        "typical_amounts": [999, 1000, 5000, 10000, 50000],
+        "preferred_merchants": ["Unknown", "Suspicious"]
+      },
+      "trusted_devices": []
+    }
+  ],
+  "user_profiles": {
+    "conservative": {
+      "description": "Usuário conservador, transações pequenas e previsíveis",
+      "typical_amount_range": [10, 500],
+      "fraud_tolerance": "low",
+      "monitoring_level": "standard"
+    },
+    "moderate": {
+      "description": "Usuário moderado, transações médias com alguma variação",
+      "typical_amount_range": [100, 2500],
+      "fraud_tolerance": "medium",
+      "monitoring_level": "standard"
+    },
+    "aggressive": {
+      "description": "Usuário agressivo, transações altas e variadas",
+      "typical_amount_range": [500, 25000],
+      "fraud_tolerance": "medium",
+      "monitoring_level": "enhanced"
+    },
+    "institutional": {
+      "description": "Cliente institucional, transações muito altas",
+      "typical_amount_range": [1000, 100000],
+      "fraud_tolerance": "high",
+      "monitoring_level": "enhanced"
+    },
+    "premium": {
+      "description": "Cliente premium, sem limites de valores",
+      "typical_amount_range": [1000, 1000000],
+      "fraud_tolerance": "high",
+      "monitoring_level": "premium"
+    },
+    "suspicious": {
+      "description": "Perfil de teste para cenários de fraude",
+      "typical_amount_range": [1, 100000],
+      "fraud_tolerance": "none",
+      "monitoring_level": "maximum"
+    }
+  }
+}
