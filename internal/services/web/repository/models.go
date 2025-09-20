@@ -5,6 +5,7 @@ import (
 )
 
 type Transaction struct {
+	DeviceID string `gorm:"size:100"`
 	TransactionID   string  `gorm:"primaryKey;size:100"`
 	UserID          string  `gorm:"size:100;not null"`
 	Amount          float64 `gorm:"type:decimal(15,2)"`

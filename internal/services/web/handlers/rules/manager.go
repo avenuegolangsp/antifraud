@@ -18,6 +18,7 @@ type AnalyzeRequest struct {
 	Direction string          `json:"direction"`
 	Location  AnalyzeLocation `json:"location"`
 	Timestamp string          `json:"timestamp"`
+	DeviceID string			  `json:"device_id"`
 }
 
 type AnalyzeLocation struct {
@@ -31,6 +32,7 @@ type RuleInput struct {
 	User        repository.User
 	Transaction repository.Transaction
 	Location    AnalyzeLocation
+	DeviceID string
 }
 
 type RuleResult struct {
