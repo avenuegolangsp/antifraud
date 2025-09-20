@@ -1,16 +1,27 @@
 package main
 
 import (
-	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers"
+	"log"
 	"net/http"
+
+	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers"
 	restful "github.com/emicklei/go-restful/v3"
 )
 
 func main() {
 	ws := handlers.NewInternalWebRestfulContainer()
-	
+
 	restful.DefaultContainer.Router(restful.CurlyRouter{})
 	restful.Add(ws.GetWS())
 
-	http.ListenAndServe(":8080", nil)	
+	dsn := "host=localhost user=postgres password=123 dbname=testdb port=5432 sslmode=disable"
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Migrar tabelas
+	db.AutoMigrate(&models.Transaction{}, &models.TransactionAnalysis{}, &models.TransactionAlert{})
+
+	http.ListenAndServe(":8080", nil)
 }
