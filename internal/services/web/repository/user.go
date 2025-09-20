@@ -41,4 +41,10 @@ type User struct {
 	FraudHistory     FraudHistory     `json:"fraud_history"`
 	BehaviorPatterns BehaviorPatterns `json:"behavior_patterns"`
 	TrustedDevices   []TrustedDevice  `json:"trusted_devices"`
+	AnomalusAmount   AnomalusAmount   `json:"anomalous_amount"`
+}
+
+type AnomalusAmount struct{
+	MultiplierAlert float32 `json:"multiplier_alert"`
+	MultiplierBlock float32 `json:"multiplier_block"`
 }
