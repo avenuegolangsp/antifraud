@@ -14,36 +14,14 @@ func (r *RuleSuspiciousHours) Apply(input RuleInput) (*RuleResult, error) {
 	// Score máximo para horário suspeito (conforme especificação)
 	const maxScore = 60
 
-	// Verifica se temos dados do usuário
-	user, ok := input.User.(map[string]interface{})
-	if !ok {
-		return nil, errors.New("user not found")
-	}
-
-	// Extrai os horários típicos do usuário
-	behaviorPatterns, ok := user["behavior_patterns"].(map[string]interface{})
-	if !ok {
-		return nil, errors.New("user behavior patterns not found")
-	}
-
-	typicalHours, ok := behaviorPatterns["typical_transaction_hours"].([]interface{})
-	if !ok || len(typicalHours) == 0 {
+	// Verifica se temos dados do usuário e horários típicos
+	typicalHoursInt := input.User.BehaviorPatterns.TypicalTransactionHours
+	if len(typicalHoursInt) == 0 {
 		return nil, errors.New("user typical transaction hours not found")
 	}
 
-	// Converte os horários típicos para slice de int
-	var typicalHoursInt []int
-	for _, hour := range typicalHours {
-		if h, ok := hour.(float64); ok {
-			typicalHoursInt = append(typicalHoursInt, int(h))
-		}
-	}
-
-	// Parse do timestamp da transação
-	transactionTime, err := time.Parse(time.RFC3339, input.Transaction.(map[string]interface{})["timestamp"].(string))
-	if err != nil {
-		return nil, err
-	}
+	// Usa o campo TransactionDate do struct Transaction
+	transactionTime := input.Transaction.TransactionDate
 
 	// Calcula a janela de horários seguros
 	safeWindow := r.calculateSafeWindow(typicalHoursInt)
