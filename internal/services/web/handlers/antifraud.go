@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers/rules"
 	"github.com/emicklei/go-restful/v3"
 )
 
@@ -35,6 +36,20 @@ func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restfu
 	// Variável clienteDados pode ser usada em outras camadas
 
 	resp.WriteHeaderAndEntity(http.StatusCreated, map[string]string{"status": "created"})
+	RuleManager rules.IRuleManager
+}
+
+func NewAntifraudHandler() *AntifraudHandler {
+	return &AntifraudHandler{
+		RuleManager: rules.NewRuleManager(),
+	}
+}
+
+func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restful.Response) {
+
+	h.RuleManager.AnalyzeTransaction(rules.AnalyzeRequest{})
+
+	_, _ = resp.Write([]byte("OK - AnalyzeTransaction"))
 }
 
 func (h *AntifraudHandler) ListAlerts(req *restful.Request, resp *restful.Response) {
@@ -54,7 +69,11 @@ func (h *AntifraudHandler) SetRules(req *restful.Request, resp *restful.Response
 }
 
 func (h *AntifraudHandler) HealthCheck(req *restful.Request, resp *restful.Response) {
-	_, _ = resp.Write([]byte("OK - HealthCheck"))
+	if _, err := resp.Write([]byte("OK - HealthCheck")); err != nil {
+		resp.WriteHeaderAndEntity(500, map[string]string{"error": "Health check failed"})
+	} else {
+		resp.WriteHeader(200)
+	}
 }
 
 func (h *AntifraudHandler) GetStats(req *restful.Request, resp *restful.Response) {

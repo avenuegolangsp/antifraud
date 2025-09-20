@@ -25,16 +25,18 @@ func NewInternalWebRestfulContainer() *RestfulWebServer {
 		CookiesAllowed: false,
 	}
 
+	antifraudHandler := NewAntifraudHandler()
+
 	ws.Filter(cors.Filter)
 	ws.Route(ws.GET("/").To((&StaticHandler{}).Render200Ok))
-	ws.Route(ws.POST("/analyze").To((&AntifraudHandler{}).AnalyzeTransaction))
-	ws.Route(ws.GET("/alerts").To((&AntifraudHandler{}).ListAlerts))
-	ws.Route(ws.GET("/risk/{transactionId}").To((&AntifraudHandler{}).GetRisk))
-	//ws.Route(ws.GET("/patterns/{userId}").To((&AntifraudHandler{}).GetPatterns))
-	ws.Route(ws.POST("/rules").To((&AntifraudHandler{}).SetRules))
-	ws.Route(ws.GET("/stats").To((&AntifraudHandler{}).GetStats))
-	ws.Route(ws.GET("/health").To((&AntifraudHandler{}).HealthCheck))
-	ws.Route(ws.GET("/clients").To((&AntifraudHandler{}).ListClientsWithTransactions))
+
+	ws.Route(ws.POST("/analyze").To(antifraudHandler.AnalyzeTransaction))
+	ws.Route(ws.GET("/alerts").To(antifraudHandler.ListAlerts))
+	ws.Route(ws.GET("/risk/{transactionId}").To(antifraudHandler.GetRisk))
+	ws.Route(ws.GET("/patterns/{userId}").To(antifraudHandler.GetPatterns))
+	ws.Route(ws.POST("/rules").To(antifraudHandler.SetRules))
+	ws.Route(ws.GET("/stats").To(antifraudHandler.GetStats))
+	ws.Route(ws.GET("/health").To(antifraudHandler.HealthCheck))
 
 	return &RestfulWebServer{ws: ws}
 }
