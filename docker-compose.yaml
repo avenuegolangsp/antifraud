@@ -15,6 +15,23 @@ services:
     networks:
       - avenue-network
 
+  migrations:
+    image: postgres:13
+    depends_on:
+      - db
+    volumes:
+      - ./sql/migrations:/docker-entrypoint-initdb.d/migrations
+      - ./sql/seed:/docker-entrypoint-initdb.d/seed
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+      - |
+        apt-get update && apt-get install -y postgresql-client && \
+        until pg_isready -h db -p 5432; do sleep 1; done && \
+        psql "postgres://avenue:password@db:5432/antifraud" -f /docker-entrypoint-initdb.d/migrations/001_create_tables.sql && \
+        psql "postgres://avenue:password@db:5432/antifraud" -f /docker-entrypoint-initdb.d/seed/001_seed_data.sql
+    networks:
+      - avenue-network
+
 volumes:
   postgres-data:
 
