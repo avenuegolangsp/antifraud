@@ -20,7 +20,7 @@ func NewInternalWebRestfulContainer() *RestfulWebServer {
 	ws := new(restful.WebService)
 	ws.Consumes("application/json").Produces("application/json")
 
-	cors := restful.CrossOriginResourceSharing{		
+	cors := restful.CrossOriginResourceSharing{
 		AllowedMethods: []string{"GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"},
 		CookiesAllowed: false,
 	}
@@ -30,10 +30,11 @@ func NewInternalWebRestfulContainer() *RestfulWebServer {
 	ws.Route(ws.POST("/analyze").To((&AntifraudHandler{}).AnalyzeTransaction))
 	ws.Route(ws.GET("/alerts").To((&AntifraudHandler{}).ListAlerts))
 	ws.Route(ws.GET("/risk/{transactionId}").To((&AntifraudHandler{}).GetRisk))
-	ws.Route(ws.GET("/patterns/{userId}").To((&AntifraudHandler{}).GetPatterns))
+	//ws.Route(ws.GET("/patterns/{userId}").To((&AntifraudHandler{}).GetPatterns))
 	ws.Route(ws.POST("/rules").To((&AntifraudHandler{}).SetRules))
 	ws.Route(ws.GET("/stats").To((&AntifraudHandler{}).GetStats))
 	ws.Route(ws.GET("/health").To((&AntifraudHandler{}).HealthCheck))
+	ws.Route(ws.GET("/clients").To((&AntifraudHandler{}).ListClientsWithTransactions))
 
 	return &RestfulWebServer{ws: ws}
 }
