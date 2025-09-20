@@ -36,7 +36,19 @@ func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restfu
 	clienteDados.Transacoes, _ = h.Repo.GetTransactionsByUserID(context.Background(), tx.UserID)
 	// Variável clienteDados pode ser usada em outras camadas
 
-	resp.WriteHeaderAndEntity(http.StatusCreated, map[string]string{"status": "created"})
+	res, err := h.RuleManager.AnalyzeTransaction(rules.AnalyzeRequest{
+		UserID:    tx.UserID,
+		Amount:    tx.Amount,
+		Type:      tx.Type,
+		Direction: tx.Direction,
+		Timestamp: tx.Timestamp,
+	})
+	if err != nil {
+		resp.WriteErrorString(http.StatusInternalServerError, "error analyzing transaction: "+err.Error())
+		return
+	}
+
+	resp.WriteHeaderAndEntity(http.StatusOK, res)
 }
 
 func NewAntifraudHandler() *AntifraudHandler {

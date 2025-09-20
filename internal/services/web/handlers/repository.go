@@ -6,16 +6,16 @@ import (
 )
 
 type Transaction struct {
-	UserID    string
-	Amount    float64
-	Type      string
-	Direction string
-	City      string
-	Country   string
-	Latitude  float64
-	Longitude float64
-	DeviceID  string
-	Timestamp string
+	UserID    string `json:"user_id"`
+	Amount    float64 `json:"amount"`
+	Type      string `json:"type"`
+	Direction string `json:"direction"`
+	City      string `json:"city"`
+	Country   string `json:"country"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+	DeviceID  string `json:"device_id"`
+	Timestamp string `json:"timestamp"`
 }
 
 type AnomalusAmount struct {
