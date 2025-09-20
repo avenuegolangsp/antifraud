@@ -1,6 +1,10 @@
 package rules
 
-import "github.com/avenuegolangsp/antifraud/internal/services/web/repository"
+import (
+	"time"
+	
+	"github.com/avenuegolangsp/antifraud/internal/services/web/repository"
+)
 
 // TYPES!!@!!
 type AnalyzeResponse struct {
@@ -58,6 +62,7 @@ func NewRuleManager() IRuleManager {
 	return &ruleManager{
 		rules: []RuleEntity{
 			&Rule1_ImpossibleTravel{},
+			NewRule4_TransactionVelocity(5, 5*time.Minute), // 5 transações em 5 minutos
 		},
 	}
 }
