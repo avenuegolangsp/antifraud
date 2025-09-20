@@ -29,6 +29,7 @@ func NewInternalWebRestfulContainer() *RestfulWebServer {
 
 	ws.Filter(cors.Filter)
 	ws.Route(ws.GET("/").To((&StaticHandler{}).Render200Ok))
+
 	ws.Route(ws.POST("/analyze").To(antifraudHandler.AnalyzeTransaction))
 	ws.Route(ws.GET("/alerts").To(antifraudHandler.ListAlerts))
 	ws.Route(ws.GET("/risk/{transactionId}").To(antifraudHandler.GetRisk))
@@ -43,4 +44,3 @@ func NewInternalWebRestfulContainer() *RestfulWebServer {
 func (s *RestfulWebServer) GetWS() *restful.WebService {
 	return s.ws
 }
-
