@@ -4,8 +4,11 @@ import (
 	"log"
 	"net/http"
 
+	"gorm.io/driver/postgres"
+
 	"github.com/avenuegolangsp/antifraud/internal/services/web/handlers"
 	restful "github.com/emicklei/go-restful/v3"
+	"gorm.io/gorm"
 )
 
 func main() {
