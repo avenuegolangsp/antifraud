@@ -39,7 +39,11 @@ func (h *AntifraudHandler) SetRules(req *restful.Request, resp *restful.Response
 }
 
 func (h *AntifraudHandler) HealthCheck(req *restful.Request, resp *restful.Response) {
-	_, _ = resp.Write([]byte("OK - HealthCheck"))
+	if _, err := resp.Write([]byte("OK - HealthCheck")); err != nil {
+		resp.WriteHeaderAndEntity(500, map[string]string{"error": "Health check failed"})
+	} else {
+		resp.WriteHeader(200)
+	}
 }
 
 func (h *AntifraudHandler) GetStats(req *restful.Request, resp *restful.Response) {
