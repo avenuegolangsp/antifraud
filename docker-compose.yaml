@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: avenue
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: antifraud
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - avenue-network
+
+volumes:
+  postgres-data:
+
+networks:
+  avenue-network:
+    driver: bridge
