@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// ...existing code...
-	db, err := sql.Open("postgres", "postgres://avenue:password@localhost:5432/antifraud?sslmode=disable")
+	db, err := sql.Open("postgres", "postgres://avenue:password@db:5432/antifraud?sslmode=disable")
 	if err != nil {
 		log.Fatalf("failed to connect to db: %v", err)
 	}
