@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -39,22 +38,7 @@ func main() {
 
 	restful.DefaultContainer.Router(restful.CurlyRouter{})
 	restful.Add(ws)
-
-	log.Println("Servidor iniciado em :8080")
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
-)
-
-func main() {
-	ws := handlers.NewInternalWebRestfulContainer()
-
 	restful.DefaultContainer.Router(restful.CurlyRouter{})
-	restful.Add(ws.GetWS())
-
-	dsn := "host=localhost user=avenue password=password dbname=antifraud port=5432 sslmode=disable"
-	_, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Println("Servidor iniciado em :8080")
 	http.ListenAndServe(":8080", nil)
 }

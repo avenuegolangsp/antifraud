@@ -10,7 +10,8 @@ import (
 )
 
 type AntifraudHandler struct {
-	Repo TransactionRepository
+	Repo        TransactionRepository
+	RuleManager rules.IRuleManager
 }
 
 func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restful.Response) {
@@ -36,20 +37,12 @@ func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restfu
 	// Variável clienteDados pode ser usada em outras camadas
 
 	resp.WriteHeaderAndEntity(http.StatusCreated, map[string]string{"status": "created"})
-	RuleManager rules.IRuleManager
 }
 
 func NewAntifraudHandler() *AntifraudHandler {
 	return &AntifraudHandler{
 		RuleManager: rules.NewRuleManager(),
 	}
-}
-
-func (h *AntifraudHandler) AnalyzeTransaction(req *restful.Request, resp *restful.Response) {
-
-	h.RuleManager.AnalyzeTransaction(rules.AnalyzeRequest{})
-
-	_, _ = resp.Write([]byte("OK - AnalyzeTransaction"))
 }
 
 func (h *AntifraudHandler) ListAlerts(req *restful.Request, resp *restful.Response) {

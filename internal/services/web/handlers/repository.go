@@ -18,14 +18,23 @@ type Transaction struct {
 	Timestamp string
 }
 
+type AnomalusAmount struct {
+	MultiplierAlert float64
+	MultiplierBlock float64
+	FraudHistory    int
+}
+
 type User struct {
-	ID        string
-	Name      string
-	Profile   string
-	Email     string
-	Phone     string
-	CreatedAt string
-	Status    string
+	ID                   string
+	Name                 string
+	Profile              string
+	Email                string
+	Phone                string
+	CreatedAt            string
+	Status               string
+	AnomalusAmount       AnomalusAmount
+	AvgTransactionAmount float64
+	MaxTransactionAmount float64
 }
 
 type TransactionRepository interface {

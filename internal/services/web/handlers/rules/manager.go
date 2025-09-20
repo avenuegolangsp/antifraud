@@ -28,13 +28,15 @@ type AnalyzeLocation struct {
 }
 
 type RuleInput struct {
-	User        repository.User
-	Transaction repository.Transaction
-	Location    AnalyzeLocation
+	User                repository.User
+	Transaction         repository.Transaction
+	Location            AnalyzeLocation
+	TransactionVelocity int
 }
 
 type RuleResult struct {
-	Score int
+	Score   int
+	Details string
 }
 
 type RuleEntity interface {
